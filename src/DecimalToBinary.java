@@ -1,12 +1,11 @@
 public class DecimalToBinary {
 
     public static void main(String[] args) {
-        System.out.println("Binary :"+convert(10, 2) );
+        System.out.println("Binary : "+convert(10, 2) );
 
         System.out.println("Octa :"+convert(10, 7) );
 
         System.out.println("Traya :"+convert(2, 3) );
-
 
     }
 
