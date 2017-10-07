@@ -2,7 +2,7 @@
 
 public class TreeTraversal
 {
-    class Node
+    static class Node
     {
         int key;
         Node left, right;
@@ -80,7 +80,7 @@ public class TreeTraversal
     // Driver method
     public static void main(String[] args)
     {
-        BinaryTree tree = new BinaryTree();
+        TreeTraversal tree = new TreeTraversal();
         tree.root = new Node(1);
         tree.root.left = new Node(2);
         tree.root.right = new Node(3);
