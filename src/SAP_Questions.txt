@@ -1,0 +1,143 @@
+Write an algorithm to Convert Numbers to Letters. Create a function, which takes an integer number as input and return letter. 
+For Example 1 = A, 2 = B, 3 = C, ........... 25 = Y, 26, Z, 27 = AA,..... 51 = AY, 52 = AZ, 53 = BA, ......  
+
+Valid palindrome.
+
+Add empty character in a string.
+
+Reverse word in a sting.
+
+I was not prepared for SQLs and asked quite a few questions on SQL joins.
+
+1. Remove comments from JSON files
+
+2. How to find if two graphs are connected and what's the shortest distance between given two nodes. 
+
+Asked me about project and question on core Java libraries. HashMap, Hashtable, multithreading etc. 
+
+1. Implement single linkedList, 
+
+Implement iterator methods hashNext and next. 
+
+Design a dashboard system to show sales data, 
+Design a database schema for University ( students, courses, professors etc ), 
+
+write a program to give the first non repeating character. Few more questions on Java.
+
+LRU cache implementaion  
+
+Implement threaded trees 
+
+one direction link list
+	
+was asked abt blocking queue .
+https://www.geeksforgeeks.org/producer-consumer-solution-using-semaphores-java/
+
+was asked to implement a simple producer / consumer prob , which I did - had studied it the prev day .
+https://www.geeksforgeeks.org/producer-consumer-solution-using-semaphores-java/
+
+implement LL w/o using the builtin collection
+
+binary search , 
+
+find max continuous sum in array , 
+
+cycle in linked list
+
+overall questions werent too hard , i didnt answer java specific questions all that well 
+
+how does hashmap work?  
+
+1.Multi Threading : Print Even-Odd 
+2. Intersection of Linked Lists 
+3. nxn Matrix question 
+4. Grouping of same integers placed sequentially in an array.  
+
+Explain the thread synchronization
+Print odd and even numbers in sequence using threads  
+
+reverse a linkedlist
+mirror a BST
+delete a node
+height of the tree  
+
+insert , delete element into sorted circular list  
+
+[DONE]write code to push,pop,<<getmax>> operatons on stack.
+
+Develop an arrayList with java  
+
+Develop a cache control  
+
+[[DONE]]synchronized singleton pattern  
+
+puzzle to calculate the average hair in a persons hair
+
+[Done]Write an algorithm to display a tree of data in multiple sorting orders
+
+[SQL]
+[DONE]diff b/w IN and EXISTS in sql  
+
+[Done]Diff garbage collection algorithms  
+
+
+
+[Offer]
+Can't disclose the questions. But for me, there was high conncentation in 
+core JAVA, 
+multi threading, 
+Operating Systems (Memory Management specifically), 
+Datastructures (not to limited to stacks,trees,linkedlists be prepared to answer in threaded and n-ary trees as well), 
+SQL join related queries and there was a question related to a specific scenario in of the teams related to database pooling and policies to related to how would you implement a queue in such scenarios to process the user requests. I don't exactly remember this.  
+
+Multithreading, Question write a dead lock in Java
+
+
+
+
+
+
+                      50
+                  /       \
+                 /         \
+                /           \
+              30             80
+           /    \         /
+          20    40       60
+                           \
+                            70
+
+         50 - 30 - 20        = 100
+         50 - 30 - 40        = 120
+         50 - 80 - 60 - 70   = 260
+
+        boolean hasPathWithSum(Node root, int sum) { //eg: sum=120
+
+            return calculateSum(root, 0, sum);
+
+        }
+
+        boolean calculateSum(Node root, int currentSum, int sum)
+        {
+           if(root!=null){
+            int currentValue =  root.value; //50
+            int currentSum = currentSum+currentValue; //0+50
+           }
+
+           if(root.left==null && root.right==null && currentSum==sum)
+           {
+                return true;
+           }
+
+           if(root.left==null && root.right==null && currentSum!=sum)
+           {
+                return false;
+           }
+
+           return calculateSum(root.left,currentSum, sum) || calculateSum(root.left,currentSum, sum);
+
+
+        }
+
+
+
