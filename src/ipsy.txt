@@ -1,0 +1,16 @@
+Implement a Super priority queue using 3 priority queue  
+
+Longest palindromes in a string SQL quesiton
+
+Data Structures and Algorithms- Linked List, Matrix manipulation, dynamic programming, etc. (Easy/Medium from Leetcode/Hackerrank).
+Machine Learning- Supervised, unsupervised algorithms, model comparison, etc
+
+interview Questions
+
+Round 1 : Phone 1 hr - Implement super priority queue .
+<Given 3 priority queues , m
+ake a super queue to peek and poll the element from the 3 queues>
+
+Round 2 : Phone 1 hr - 1) Deep copy linkedlist with next and random pointer 2) Merge Intervals if there is overlap  
+
+Array sorting code using external sort parameters  

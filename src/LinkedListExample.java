@@ -33,12 +33,44 @@ public class LinkedListExample
         System.out.println("Original LinkedList is:");
         printLinkedList(start);
 
-        start =  revCoupleLinkedList(start);
+        /*start =  revCoupleLinkedList(start);
 
         System.out.println("Rev LinkedList is :");
         printLinkedList(start);
+        */
+        start = revLinkedList(start);
 
+        System.out.println("Rev LinkedList is :");
+        //printLinkedList(start);
 
+    }
+
+    public static LinkedListNode revLinkedList(LinkedListNode root){
+        System.out.println("Initial linklist before reverse: ");
+        int count = 0;
+
+        printLinkedList(root);
+        LinkedListNode head= root;
+        LinkedListNode second =  head.getNextLinkedListNode();
+        LinkedListNode third=  head.getNextLinkedListNode().getNextLinkedListNode();
+
+        do {
+            second.setNextLinkedListNode(head);
+            head.setNextLinkedListNode(third);
+
+            head = second;
+
+            third = third.getNextLinkedListNode();
+            second = third;
+
+            System.out.println();
+            System.out.println("Iteration:"+ count);
+            printLinkedList(root);
+
+            count++;
+        }while(count <= 4);
+
+        return null;
     }
 
     public static LinkedListNode revCoupleLinkedList(LinkedListNode start){

@@ -14,6 +14,8 @@ public class TreeTraversal
         }
     }
 
+    static int scount = 0;
+    static int smaxcount = 7;
 
     // Root of Binary Tree
     Node root;
@@ -72,21 +74,52 @@ public class TreeTraversal
         printPreorder(node.right);
     }
 
+    void printkthSmallestElement(Node node, int k){
+        if(node == null)
+            return;
+        printkthSmallestElement(node.left, k);
+        ++scount;
+        if(scount == k){
+            System.out.println( "Kth smallest element is : "+ node.key);
+            return;
+        }
+        printkthSmallestElement(node.right, k);
+    }
+
+    void printkthLargestElement(Node node, int k){
+        if(node == null)
+            return;
+        printkthLargestElement(node.right, k);
+        --smaxcount;
+        if(smaxcount == k+1){
+            System.out.println( "Kth largest element is : "+ node.key);
+            return;
+        }
+        printkthLargestElement(node.left, k);
+
+    }
+
     // Wrappers over above recursive functions
     void printPostorder()  {     printPostorder(root);  }
     void printInorder()    {     printInorder(root);   }
     void printPreorder()   {     printPreorder(root);  }
-
+    void printkthSmallestElement(int k)   {     printkthSmallestElement(root, k);  }
+    void printkthLargestElement(int k)   {     printkthLargestElement(root, k);  }
     // Driver method
     public static void main(String[] args)
     {
         TreeTraversal tree = new TreeTraversal();
-        tree.root = new Node(1);
-        tree.root.left = new Node(2);
-        tree.root.right = new Node(3);
-        tree.root.left.left = new Node(4);
-        tree.root.left.right = new Node(5);
+        tree.root = new Node(5);
 
+        tree.root.left = new Node(2);
+        tree.root.left.left = new Node(1);
+        tree.root.left.right = new Node(3);
+
+        tree.root.right = new Node(7);
+        tree.root.right.left = new Node(6);
+        tree.root.right.right = new Node(9);
+
+/*
         System.out.println("Preorder traversal of binary tree is ");
         tree.printPreorder();
 
@@ -94,6 +127,24 @@ public class TreeTraversal
         tree.printInorder();
 
         System.out.println("\nPostorder traversal of binary tree is ");
-        tree.printPostorder();
+        tree.printPostorder();*/
+
+        System.out.println("\nKth smallest element of binary tree is ");
+        tree.printkthSmallestElement(3);
+
+        System.out.println("\nKth largest element of binary tree is ");
+        tree.printkthLargestElement(4);
     }
 }
+
+
+/*
+*
+*               5
+*              / \
+*             2   7
+*           /  \  / \
+*          1   3 6   9
+*
+*
+* */
