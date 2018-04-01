@@ -94,9 +94,7 @@ Multithreading, Question write a dead lock in Java
 
 
 
-
-
-
+/// Question
                       50
                   /       \
                  /         \
@@ -110,6 +108,8 @@ Multithreading, Question write a dead lock in Java
          50 - 30 - 20        = 100
          50 - 30 - 40        = 120
          50 - 80 - 60 - 70   = 260
+
+/// My Code
 
         boolean hasPathWithSum(Node root, int sum) { //eg: sum=120
 

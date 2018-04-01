@@ -1,0 +1,18 @@
+
+Given an array of numbers and a target,
+find if there are two numbers in the array that you can subtract one from another and produce the target
+
+
+Static boolean getTheComplement(int[] input, int target) {
+        if (input.length == 0 || target == null || input == null) Retrun false;
+        set < Interger > lookupSet = new HashSet < Integer > ();
+        for (int i = 0; i < input.length; i++) //4
+        {
+            if(lookup.exists(input[i]-target) ||  lookup.exists(input[i]+target))                 {
+                Return true;
+            }Else{
+                lookup.put(input[i]); [5]
+            }
+        }
+        Return false;
+}

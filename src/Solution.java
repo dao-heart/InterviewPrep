@@ -10,7 +10,7 @@ public class Solution {
     public static void main(String args[] ) throws Exception {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT */
 
-        int [] a = new int []{1,1,2,1,2,2};
+        int [] a = new int []{1,1,2,1,2,2,1};
         System.out.println( "Hello world! " +findShortestSubArray(a));
     }
 
