@@ -93,12 +93,9 @@ public class DFSandBFSwithLinkedList {
                 for (Node node : temp.edges) {
                     System.out.println("Adding node to the queue: " + node.value);
                     fifoNode.add(node);
-
                 }
             }
         }
         return false;
     }
-
-
 }
