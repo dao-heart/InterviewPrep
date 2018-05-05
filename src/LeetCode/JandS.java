@@ -4,14 +4,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class JandS{
-    public static void main(String args[]){
+ /*   public static void main(String args[]){
 
         String s ="baABAaA";
         String j="aA";
        // System.out.println(new JandS().countTheJewels(s,j));
 
         new JandS().countTheJewels(s,j);
-    }
+    }*/
 
     public int countTheJewels(String s, String j){
         int countJewels = 0;

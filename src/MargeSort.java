@@ -1,4 +1,7 @@
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MargeSort
 {
@@ -35,7 +38,9 @@ public class MargeSort
         int [] b = new int []{2,3,8,11};
 
         System.out.println("Array 1: "+a[0] + a[1] + a[2]);
-        System.out.println("Array 2: "+b.toString());
+        System.out.println("Array 2: ");
+        Arrays.stream(b).forEach(p->System.out.print(p +"  "));
+        System.out.println();
 
         System.out.println("Marge Sorted Array: "+margeSort(a,b).toString());
     }

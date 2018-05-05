@@ -12,6 +12,14 @@ public class TreeTraversal
             key = item;
             left = right = null;
         }
+
+        void setLeft(Node node){
+            this.left=node;
+        }
+        void setRight(Node node){
+            this.right=node;
+        }
+
     }
 
     static int scount = 0;
@@ -99,6 +107,20 @@ public class TreeTraversal
 
     }
 
+
+    public static void getInvertedBinaryTree(Node root){
+        if(root.left!=null || root.right!=null){
+            Node temp = root.left;
+            root.setLeft(root.right);
+            root.setRight(temp);
+
+            getInvertedBinaryTree(root.left);
+            getInvertedBinaryTree(root.right);
+        }
+    }
+
+
+
     // Wrappers over above recursive functions
     void printPostorder()  {     printPostorder(root);  }
     void printInorder()    {     printInorder(root);   }
@@ -127,13 +149,21 @@ public class TreeTraversal
         tree.printInorder();
 
         System.out.println("\nPostorder traversal of binary tree is ");
-        tree.printPostorder();*/
+        tree.printPostorder();
 
         System.out.println("\nKth smallest element of binary tree is ");
         tree.printkthSmallestElement(3);
 
         System.out.println("\nKth largest element of binary tree is ");
-        tree.printkthLargestElement(4);
+        tree.printkthLargestElement(4);*/
+
+        System.out.println("Before");
+        tree.printPreorder();
+        getInvertedBinaryTree(tree.root);
+        System.out.println();
+        System.out.println("After");
+        tree.printPreorder();
+
     }
 }
 

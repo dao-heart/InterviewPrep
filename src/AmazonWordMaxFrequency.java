@@ -33,10 +33,6 @@ public class AmazonWordMaxFrequency{
             String temp = literatureText.substring(start,indexOfWordBrake-1);
             literatureText = literatureText.substring(indexOfWordBrake+1);
 
-
-
-
-
         }
 
 
