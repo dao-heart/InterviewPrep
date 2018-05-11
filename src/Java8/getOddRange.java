@@ -2,15 +2,17 @@ package Java8;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
 public class getOddRange {
     public static void main(String[] args) {
-        int l=3;
-        int r=3;
+        int l=2;
+        int r=17;
         System.out.println("Range : ");
-        Arrays.stream(oddNumbers(l,r)).forEach(p->System.out.println(p +"  "));
+        //Arrays.stream(oddNumbers(l,r)).forEach(p->System.out.println(p +"  "));
+        System.out.println(oddNumbersWithStream(l,r));
     }
 
     public static int[] oddNumbers(int l, int r){
@@ -30,4 +32,14 @@ public class getOddRange {
         }
         return outArray;
     }
+
+    public static int[] oddNumbersWithStream(int l, int r){
+
+        int [] output = IntStream.rangeClosed(l,r).filter(p->p%2!=0).toArray();
+
+        Arrays.stream(output).forEach(p-> System.out.print( p+"  "));
+
+        return output;
+    }
+
 }
