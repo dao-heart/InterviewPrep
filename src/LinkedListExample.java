@@ -27,8 +27,14 @@ public class LinkedListExample
         LinkedListNode tempRef5 = new LinkedListNode(5);
         tempRef4.setNextLinkedListNode(tempRef5);
 
-        LinkedListNode tempRef6 = new LinkedListNode(6);
+       /* LinkedListNode tempRef6 = new LinkedListNode(6);
         tempRef5.setNextLinkedListNode(tempRef6);
+
+        LinkedListNode tempRef7 = new LinkedListNode(7);
+        tempRef6.setNextLinkedListNode(tempRef7);
+
+        LinkedListNode tempRef8 = new LinkedListNode(8);
+        tempRef7.setNextLinkedListNode(tempRef8);*/
 
         System.out.println("Original LinkedList is:");
         printLinkedList(start);
@@ -38,39 +44,23 @@ public class LinkedListExample
         System.out.println("Rev LinkedList is :");
         printLinkedList(start);
         */
-        start = revLinkedList(start);
+        start = reverseLinkedList(start);
 
         System.out.println("Rev LinkedList is :");
-        //printLinkedList(start);
+        printLinkedList(start);
 
     }
 
-    public static LinkedListNode revLinkedList(LinkedListNode root){
-        System.out.println("Initial linklist before reverse: ");
-        int count = 0;
+    public static LinkedListNode reverseLinkedList(LinkedListNode head){
 
-        printLinkedList(root);
-        LinkedListNode head= root;
-        LinkedListNode second =  head.getNextLinkedListNode();
-        LinkedListNode third=  head.getNextLinkedListNode().getNextLinkedListNode();
-
-        do {
-            second.setNextLinkedListNode(head);
-            head.setNextLinkedListNode(third);
-
-            head = second;
-
-            third = third.getNextLinkedListNode();
-            second = third;
-
-            System.out.println();
-            System.out.println("Iteration:"+ count);
-            printLinkedList(root);
-
-            count++;
-        }while(count <= 4);
-
-        return null;
+        LinkedListNode newHead = null;
+        while (head!=null){
+            LinkedListNode temp = head.getNextLinkedListNode();
+            head.setNextLinkedListNode(newHead);
+            newHead = head;
+            head = temp;
+        }
+        return newHead;
     }
 
     public static LinkedListNode revCoupleLinkedList(LinkedListNode start){
@@ -125,10 +115,10 @@ public class LinkedListExample
 
     public static void printLinkedList(LinkedListNode start){
         LinkedListNode loopRef = start;
-        do {
+        while (loopRef!=null){
             System.out.print(loopRef.getData()+"   ");
             loopRef = loopRef.getNextLinkedListNode();
-        } while(loopRef!=null);
+        }
         System.out.println();
     }
 

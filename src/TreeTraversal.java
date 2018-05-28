@@ -1,4 +1,20 @@
 
+/*
+ *
+ *               5
+ *              / \
+ *             2   7
+ *           /  \  / \
+ *          1   3 6   9
+ *
+ *
+ * */
+
+//Mirror Tree
+//Median
+//ksmallest - klargest
+//IN-Pre-Post order
+
 
 public class TreeTraversal
 {
@@ -107,7 +123,6 @@ public class TreeTraversal
 
     }
 
-
     public static void getInvertedBinaryTree(Node root){
         if(root.left!=null || root.right!=null){
             Node temp = root.left;
@@ -118,6 +133,54 @@ public class TreeTraversal
             getInvertedBinaryTree(root.right);
         }
     }
+
+    public static void getMedianOnTree(Node root){
+
+        getNumberOfNodes(root);
+        System.out.println();
+        System.out.println("Count of number of node:"+count);
+        medianNumber(root);
+        System.out.println();
+        System.out.println("Median:"+median);
+    }
+
+    static int count = 0;
+    static int counter = 0;
+    static int median  =0;
+
+    public static void getNumberOfNodes(Node root){
+        if(root==null)
+            return;
+        getNumberOfNodes(root.left);
+        count++;
+        getNumberOfNodes(root.right);
+    }
+
+    public static void medianNumber(Node root){
+
+        if(root==null)
+            return;
+
+        medianNumber(root.left);
+        counter++;
+        if(count%2!=0){
+            if(counter==(count/2))
+                median = root.key;
+                return;
+        }else {
+            if(counter==(count/2) || counter==(count/2+1))
+                median +=root.key;
+
+            if(counter==(count/2+1)) {
+                median= median/2;
+                return;
+            }
+
+        }
+        medianNumber(root.right);
+
+    }
+
 
 
 
@@ -131,7 +194,7 @@ public class TreeTraversal
     public static void main(String[] args)
     {
         TreeTraversal tree = new TreeTraversal();
-        tree.root = new Node(5);
+        tree.root = new Node(4);
 
         tree.root.left = new Node(2);
         tree.root.left.left = new Node(1);
@@ -140,6 +203,8 @@ public class TreeTraversal
         tree.root.right = new Node(7);
         tree.root.right.left = new Node(6);
         tree.root.right.right = new Node(9);
+
+        //tree.root.right.right.left = new Node(8);
 
 /*
         System.out.println("Preorder traversal of binary tree is ");
@@ -158,23 +223,15 @@ public class TreeTraversal
         tree.printkthLargestElement(4);*/
 
         System.out.println("Before");
-        tree.printPreorder();
-        getInvertedBinaryTree(tree.root);
+        tree.printInorder();
+        //getInvertedBinaryTree(tree.root);
+
+        getMedianOnTree(tree.root);
         System.out.println();
         System.out.println("After");
-        tree.printPreorder();
+        tree.printInorder();
 
     }
 }
 
 
-/*
-*
-*               5
-*              / \
-*             2   7
-*           /  \  / \
-*          1   3 6   9
-*
-*
-* */
