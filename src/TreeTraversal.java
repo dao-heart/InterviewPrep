@@ -1,20 +1,13 @@
 
-/*
- *
- *               5
- *              / \
- *             2   7
- *           /  \  / \
- *          1   3 6   9
- *
- *
- * */
+
 
 //Mirror Tree
 //Median
 //ksmallest - klargest
 //IN-Pre-Post order
 
+
+import java.sql.SQLOutput;
 
 public class TreeTraversal
 {
@@ -181,7 +174,41 @@ public class TreeTraversal
 
     }
 
+    //Find LCA - Least common Ancestor
+    void printLCA(int n1, int n2){
+        Node result = getLCA(root,n1,n2);
+        if(v1&&v2)
+            System.out.println("Least Common partent of N1:"+ n1+" & N2: "+n2+" is "+result.key);
+        else
+            System.out.println("One node not present ");
+    }
 
+
+    static boolean v1,v2;
+    private static Node getLCA(Node root, int n1,int n2){
+
+        if(root==null)
+            return null;
+        if(root.key==n1 ) {
+            v1=true;
+            return root;
+        }
+
+        if( root.key==n2) {
+            v2=true;
+            return root;
+        }
+
+        Node leftTreeNode = getLCA(root.left,n1,n2);
+        Node rightTreeNode = getLCA(root.right,n1,n2);
+
+        if(leftTreeNode!=null && rightTreeNode!=null) {
+            System.out.println("LCA: " + root.key);
+            return root;
+        }
+
+        return leftTreeNode==null?rightTreeNode:leftTreeNode;
+    }
 
 
     // Wrappers over above recursive functions
@@ -191,20 +218,40 @@ public class TreeTraversal
     void printkthSmallestElement(int k)   {     printkthSmallestElement(root, k);  }
     void printkthLargestElement(int k)   {     printkthLargestElement(root, k);  }
     // Driver method
+
+
+
+
     public static void main(String[] args)
     {
+        /*
+         *
+         *               5
+         *            /     \
+         *           2       10
+         *         /  \    /   \
+         *        1   3   7     12
+         *               / \    /  \
+         *              6   8  11   14
+         * */
+
         TreeTraversal tree = new TreeTraversal();
-        tree.root = new Node(4);
+        tree.root = new Node(5);
 
         tree.root.left = new Node(2);
         tree.root.left.left = new Node(1);
         tree.root.left.right = new Node(3);
 
-        tree.root.right = new Node(7);
-        tree.root.right.left = new Node(6);
-        tree.root.right.right = new Node(9);
+        tree.root.right = new Node(10);
+        tree.root.right.left = new Node(7);
+        tree.root.right.right = new Node(12);
 
-        //tree.root.right.right.left = new Node(8);
+        tree.root.right.left.left = new Node(6);
+        tree.root.right.left.right= new Node(8);
+
+        tree.root.right.right.left = new Node(11);
+        tree.root.right.right.right = new Node(14);
+
 
 /*
         System.out.println("Preorder traversal of binary tree is ");
@@ -222,14 +269,24 @@ public class TreeTraversal
         System.out.println("\nKth largest element of binary tree is ");
         tree.printkthLargestElement(4);*/
 
-        System.out.println("Before");
-        tree.printInorder();
-        //getInvertedBinaryTree(tree.root);
+//        System.out.println("Before");
+//        tree.printInorder();
+//        //getInvertedBinaryTree(tree.root);
+//
+//        getMedianOnTree(tree.root);
+//        System.out.println();
+//        System.out.println("After");
+//        tree.printInorder();
 
-        getMedianOnTree(tree.root);
-        System.out.println();
-        System.out.println("After");
-        tree.printInorder();
+          tree.printLCA(6,11);
+          tree.printLCA(11,6);
+
+        tree.printLCA(11,14);
+        tree.printLCA(14,11);
+        tree.printLCA(1,8);
+        tree.printLCA(6,12);
+
+
 
     }
 }
