@@ -9,7 +9,6 @@ public class HashMapSorter {
 
         Map<String,Integer> inputMap = new HashMap<>();
         inputMap.put("Gaurang",10);
-        inputMap.put("Shreya",100);
         inputMap.put("Vishruti",7);
         inputMap.put("Nitin",55);
         inputMap.put("Amol",33);

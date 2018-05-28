@@ -284,7 +284,7 @@ public class TreeTraversal
         tree.printLCA(11,14);
         tree.printLCA(14,11);
         tree.printLCA(1,8);
-        tree.printLCA(6,12);
+        tree.printLCA(6,3);
 
 
 
