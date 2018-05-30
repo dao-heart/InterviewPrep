@@ -55,19 +55,14 @@ public class FindWinnerOfElection {
                 voteMap.put(vote,1);
             }
         }
-        int maxVotes = 0;
-        String winner = "";
+        List<Map.Entry<String, Integer>> listOfVotes =  new ArrayList<>(voteMap.entrySet());
 
-       List<Map.Entry<String, Integer>> listOfVotes =  new ArrayList<>(voteMap.entrySet());
-
-       listOfVotes.sort((o1,o2)->{
+        listOfVotes.sort((o1,o2)->{
             if(o1.getValue() == o2.getValue()) {
                 if(o1.getKey().compareTo(o2.getKey())<1)
                     return 1;
                 else
                     return -1;
-
-
             }
             if(o1.getValue() < o2.getValue())
                 return 1;
