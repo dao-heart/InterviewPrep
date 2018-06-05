@@ -14,7 +14,18 @@ public class LinkedListInvoker{
         ll.addNode(35);
         ll.addNode(25);
         ll.addNode(300);
+        ll.addNode(150);
+        ll.addNode(200);
+        /*ll.addNode(450);*/
         ll.printLinkedList();
+
+        System.out.println();
+        int key = 4;
+        System.out.println("Reverse fragement: Key "+key+" :");
+        ll.revLinkedList(key);
+
+        ll.printLinkedList();
+/*
 
         System.out.println();
         System.out.println("Find mid element");
@@ -52,6 +63,7 @@ public class LinkedListInvoker{
         ll.printLinkedList();
 
 
+*/
 
 
 
@@ -168,6 +180,44 @@ class LinkedList {
             head=temp;
         }
         head = newHead;
+    }
+
+    public void revLinkedList(int k){
+        this.recLinkedListInFragements(head,k);
+    }
+
+    private void recLinkedListInFragements(LinkedListNode head, int k){
+        //find the end
+
+        LinkedListNode endPointer = head;
+        LinkedListNode prevPointer = null;
+        int  counter = 0;
+        while (counter++<k*2-1){
+
+            if(endPointer==null){
+                //endPointer=prevPointer;
+                break;
+            }
+            //prevPointer=endPointer;
+            endPointer=endPointer.getNext();
+        }
+
+        LinkedListNode newHead=endPointer;
+        counter=0;
+        while (counter++<k){
+            if(head==null)
+                break;
+
+            LinkedListNode temp = head.getNext();
+            head.setNext(newHead);
+            newHead = head;
+            head = temp;
+        }
+
+        if(head!=null)
+            recLinkedListInFragements(head,k);
+
+        this.head = newHead;
     }
 
     private class LinkedListNode{

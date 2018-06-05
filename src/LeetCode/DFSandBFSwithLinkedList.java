@@ -6,7 +6,7 @@ import java.util.Queue;
 
 class Node{
     int value;
-    LinkedList<Node> edges =  new LinkedList<Node>();
+    LinkedList<Node> edges =  new LinkedList<>();
     boolean visited; //clean this flag after each run
     public Node(int value){
         this.value=value;
@@ -77,7 +77,7 @@ public class DFSandBFSwithLinkedList {
 
     public static boolean BFS(Node start, Node end){
         System.out.println("start: "+start.value+ " | end: "+end.value );
-        Queue<Node> fifoNode = new LinkedList<Node>();
+        Queue<Node> fifoNode = new LinkedList<>();
 
         fifoNode.add(start);
 

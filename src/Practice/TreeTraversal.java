@@ -1,4 +1,4 @@
-
+package Practice;
 
 
 //Mirror Tree
@@ -6,8 +6,6 @@
 //ksmallest - klargest
 //IN-Pre-Post order
 
-
-import java.sql.SQLOutput;
 
 public class TreeTraversal
 {
@@ -211,6 +209,32 @@ public class TreeTraversal
     }
 
 
+    static boolean output = true;
+    public static boolean isTreeBalanced(Node root){
+
+        if(root.left == null && root.right == null)
+            return false;
+
+        int diff = getDifferance(root);
+
+        return output;
+    }
+
+    private static int getDifferance(Node root){
+
+        if(root == null)
+            return 0;
+        int l = getDifferance(root.left);
+        int r = getDifferance(root.right);
+
+        if(Math.abs(l-r)>1) {
+            System.out.println("unbalanced at :"+root.key);
+            output = false;
+        }
+        return Math.max(l,r)+1;
+    }
+
+
     // Wrappers over above recursive functions
     void printPostorder()  {     printPostorder(root);  }
     void printInorder()    {     printInorder(root);   }
@@ -252,6 +276,11 @@ public class TreeTraversal
         tree.root.right.right.left = new Node(11);
         tree.root.right.right.right = new Node(14);
 
+     /* tree.root.right.right.right.right = new Node(15);
+        tree.root.right.right.right.right.right = new Node(16);*/
+
+        boolean result = tree.isTreeBalanced(tree.root);
+        System.out.println("Tree is balanced : "+result);
 
 /*
         System.out.println("Preorder traversal of binary tree is ");
@@ -278,14 +307,14 @@ public class TreeTraversal
 //        System.out.println("After");
 //        tree.printInorder();
 
-          tree.printLCA(6,11);
+       /*   tree.printLCA(6,11);
           tree.printLCA(11,6);
 
         tree.printLCA(11,14);
         tree.printLCA(14,11);
         tree.printLCA(1,8);
         tree.printLCA(6,3);
-
+*/
 
 
     }
