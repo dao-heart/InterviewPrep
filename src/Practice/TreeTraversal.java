@@ -235,6 +235,29 @@ public class TreeTraversal
     }
 
 
+    public int getMaxDepthOfBST(Node root){
+        if(root==null)
+            return 0;
+
+        int leftSum = getMaxDepthOfBST(root.left);
+        int rightSum = getMaxDepthOfBST(root.right);
+
+        return Math.max(leftSum,rightSum)+1;
+    }
+
+
+    public void printAllThePaths(Node root, String path){
+        if(root==null){
+            System.out.println(path);
+            return;
+        }
+
+        printAllThePaths(root.left,path+" -> "+root.key);
+        printAllThePaths(root.right, path+ " -> "+root.key);
+
+    }
+
+
     // Wrappers over above recursive functions
     void printPostorder()  {     printPostorder(root);  }
     void printInorder()    {     printInorder(root);   }
@@ -276,11 +299,17 @@ public class TreeTraversal
         tree.root.right.right.left = new Node(11);
         tree.root.right.right.right = new Node(14);
 
-     /* tree.root.right.right.right.right = new Node(15);
-        tree.root.right.right.right.right.right = new Node(16);*/
+      tree.root.right.right.right.right = new Node(15);
+        /*tree.root.right.right.right.right.right = new Node(16);*/
 
-        boolean result = tree.isTreeBalanced(tree.root);
-        System.out.println("Tree is balanced : "+result);
+  /*      boolean result = tree.isTreeBalanced(tree.root);
+        System.out.println("Tree is balanced : "+result);*/
+
+
+      //  System.out.println("Max depth of the tree: "+tree.getMaxDepthOfBST(tree.root));
+
+
+        tree.printAllThePaths(tree.root,"");
 
 /*
         System.out.println("Preorder traversal of binary tree is ");
